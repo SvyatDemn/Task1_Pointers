@@ -5,7 +5,7 @@
 #include <iostream> 
 
 typedef unsigned int ui;
-using namespace std;
+
 
 
 

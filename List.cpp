@@ -48,11 +48,11 @@ ui StringListCapacity(char** list)
 
 void ShowList(char** list)
 {
-	cout << "Capacity: " << StringListCapacity(list) << endl;
-	cout << "Size" << StringListSize(list) << endl;
+	std::cout << "Capacity: " << StringListCapacity(list) << std::endl;
+	std::cout << "Size" << StringListSize(list) << std::endl;
 	ui size = StringListSize(list);
 	for(int i = 0; i < size; i++)
-		cout << "Number: " << i << ':' << list[i] << endl;
+		std::cout << "Number: " << i << ':' << list[i] << std::endl;
 }
 
 void StringListAdd(char*** list, char* str)
@@ -60,7 +60,7 @@ void StringListAdd(char*** list, char* str)
 	if (list != nullptr)
 	{
 		ui size = StringListSize(*list);
-		if(StringListSize(*list) == StringListCapacity(*list))
+		if(size == StringListCapacity(*list))
 		{
 			ui newcapacity = size * 2;
 			void* newmem = (*list) - 2;
@@ -71,11 +71,11 @@ void StringListAdd(char*** list, char* str)
 				*list = (char**)(((ui*)(newmem)) + 2);
 				memset((*list) + size + 1, 0, newcapacity - size);
 			}
+			
+		}
 			size = (ui) (*list)[-1]++;
 			*list[size] = (char*)malloc(strlen(str) + 1);
 			strcpy(*list[size], str);
-		}
-
 
 	}
 }
@@ -109,6 +109,7 @@ ui StringListIndexOf(char** list, char* str)
 				if (strcmp(list[i], str) == 0)
 					return i;
 	}
+	return -1;
 }
 
 void Swap(char** a, char** b)
@@ -138,7 +139,7 @@ void StringListReplaceInStrings(char** list, char* before, char* after)
 	if (list != nullptr)
 	{
 		int index = StringListIndexOf(list, before);
-		while (index >= 0)
+		while (index != -1)
 		{
 			list[index] = (char*)realloc(list[index], strlen(after) + 1);
 			strcpy(list[index], after);
@@ -154,6 +155,7 @@ void StringListSort(char** list)
 		{
 			for(int j = i + 1; j < StringListSize(list); j++)
 				if(strcmp(list[i], list[j]) > 0)
+					Swap(&list[i], &list[j]);
 		}
 	}
 }
