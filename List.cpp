@@ -2,8 +2,8 @@
 
 typedef unsigned int ui;
 
-const ui SizeOfAr = 10;
-const ui SizeOfInf = 2;
+static const ui SizeOfAr = 10;
+static const ui SizeOfInf = 2;
 
 void StringListInit(char*** list)
 {
@@ -27,6 +27,7 @@ void StringListDestroy(char*** list)
 		free((*list)[i]);
 		(*list)[i] = nullptr;
 		}
+	*list = nullptr;
     }
 }
 
@@ -52,7 +53,7 @@ void ShowList(char** list)
 	std::cout << "Size" << StringListSize(list) << std::endl;
 	ui size = StringListSize(list);
 	for(int i = 0; i < size; i++)
-		std::cout << "Number: " << i << ':' << list[i] << std::endl;
+	std::cout << "Number: " << i << ':' << list[i] << std::endl;
 }
 
 void StringListAdd(char*** list, char* str)
@@ -86,7 +87,7 @@ void StringListRemove(char** list, char* str)
 	{
 		ui size = StringListSize(list);
 		ui index = StringListIndexOf(list, str);
-		while(index >= 0)
+		while(index != -1)
 		{
 			for(int i = index; i <= size - 2; i++)
 			{
