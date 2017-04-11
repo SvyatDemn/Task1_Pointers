@@ -8,12 +8,12 @@ static const ui SizeOfInf = 2;
 void StringListInit(char*** list)
 {
 	void* tmp_ptr = malloc(SizeOfAr * sizeof(char*) + SizeOfInf * sizeof(ui));
-			memset(tmp_ptr, 0, SizeOfAr * sizeof(char*) + SizeOfInf * sizeof(ui));
+	memset(tmp_ptr, 0, SizeOfAr * sizeof(char*) + SizeOfInf * sizeof(ui));
 
-			unsigned* capacity = (unsigned*)tmp_ptr;
-			unsigned* size = (unsigned*)tmp_ptr + 1;
-			*capacity = 10;
-			*list = (char**)(capacity + 2);
+	unsigned* capacity = (unsigned*)tmp_ptr;
+	unsigned* size = (unsigned*)tmp_ptr + 1;
+	*capacity = 10;
+	*list = (char**)(capacity + 2);
 
 }
 
