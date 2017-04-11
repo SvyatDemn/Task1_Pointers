@@ -17,7 +17,7 @@ void StringListDestroy(char*** list);
 /* Show list*/
 void ShowList(char** list);
 /* Inserts value at the end of the list. */
-void StringListAdd(char** list, char* str);
+void StringListAdd(char*** list, char* str);
 /* Removes all occurrences of str in the list. */
 void StringListRemove(char** list, char* str);
  
