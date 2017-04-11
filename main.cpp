@@ -3,7 +3,7 @@
 
 int main()
 {
-	/*
+
 	char** list = nullptr;
 
 	StringListInit(&list);
@@ -18,7 +18,6 @@ int main()
 	StringListAdd(&list, "abcgu");
 	StringListAdd(&list, "abcgi");
 	ShowList(list);
-	*/
 
 
 
