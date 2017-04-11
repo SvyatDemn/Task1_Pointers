@@ -74,10 +74,9 @@ void StringListAdd(char*** list, char* str)
 			}
 			
 		}
-			size = (ui) (*list)[-1]++;
-			*list[size] = (char*)malloc(strlen(str) + 1);
-			strcpy(*list[size], str);
-
+	size = (ui) (*list)[-1]++;
+	*list[size] = (char*)malloc(strlen(str) + 1);
+	strcpy(*list[size], str);
 	}
 }
 
